@@ -1,0 +1,27 @@
+## Docker Compose app on IEM
+$ iectl iem create-app \
+         --name                 "my cool app" \ #name of the application you want to create
+         --repositoryName       "repo1" \ #name of the repo name associated with the application
+         --category             "Retail" \ #name of category under which you want to create the app
+         --description          "my cool app's description" \  #description of the application 
+         --projectName          "project1" \ #project name in which application should be created
+         --icon-path            "/path/to/icon/image" \ #path of the image you want to associate with application
+         --web-address          "www.sample.com" \ #(optional) web address associated with the app (default "www.siemens.com")
+         --configurator-url     "/sample/example.html" #(optional) redirect url for the external configurator
+         --signup-type          "SignUpWithCodeOnly" #(optional) Use Edge Device Auth Service. Allowed Inputs - "SignUpWithCodeOnly", "SignUpWithOrWithoutCode", "NoSignUp", "SignUpWithoutCode", "None" (default "None")
+
+## New Version of app
+$ iectl publisher edgemanagement application createunpublishedversion \
+            --appid "unique id of application on IEM" \ # Unique id(defined while applicaiton is created on IEM) of application for which the version has to be created  
+            --changelogs "initial release" \
+            --yamlpath "/path/to/folder/with/docker-compose.yaml" \ # Path to your docker compose yaml file
+            --versionnumber "1.0.0" # This version must be conformant to the semantic versioning specification
+            --redirectsection "my service" \ # This requires the service name within docker-compose which contains the container that shall be exposed
+            --redirecttype "FromBoxSpecificPort" \ # Either FromBoxSpecificPort for direct port exposure or FromBoxReverseProxy for reverse proxy exposure
+            --redirecturl "8080" \ # The port which shall be exposed from your container
+            --restredirecturl "" # This path will be used upon redirect to your application
+
+## Upload App to IEM
+$ iectl publisher edgemanagement application uploadunpublishedversion \
+            --appid "unique id of application on IEM" \ # Unique id(defined while applicaiton is created on IEM) of application for which the version has to be created  
+            --versionnumber "1.0.0" # This version must be conformant to the semantic versioning specification
