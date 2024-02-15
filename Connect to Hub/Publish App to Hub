@@ -1,0 +1,29 @@
+#iectl publisher iehub application createversion
+#iectl publisher iehub application activateversion
+#iectl publisher iehub application releaseversion
+
+## Create
+$ iectl publisher iehub application createversion \
+        --appname "my cool app" \ # name of the application for which you are creating new version
+        --versionnumber "0.0.1" \ # version number to create
+        --appbinary "binary path" \ # [Optional] if you already have a .app file which you want to assosciate with this version 
+        --ossfile "ossfile path" \ # [Optional] OSS file associated with application version to upload. Supported formats : .7z, .zip
+        --releasenotes "releasenotes filepath" \ # [Optional] Release notes file associated with application version to upload. Supported formats : .txt, .pdf,.7z, .zip
+        --activate \ # [Optional] use this flag if you want to activate version after creation 
+
+## Activate
+$ iectl publisher iehub application activateversion \
+        --appname "my cool app" \ # name of the application of which version is being activated
+        --versionnumber "0.0.1" \ # version number to activate
+
+## Fill Version Details
+$ iectl publisher iehub application versiondetail \
+        --appname "my cool app" \ # name of the application of which version is being activated
+        --versionnumber "0.0.1" \ # version number to activate
+        --key "version,status" \ # this parameter can be used to filtering the command output , keys given in this flag will only appear in output
+
+## Release Version
+$ iectl publisher iehub application releaseversion \
+        --appname "my cool app" \ # name of the application of which version is being released
+        --versionnumber "0.0.1" \ # version number to release
+

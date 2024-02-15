@@ -1,0 +1,5 @@
+$ iectl config add iehub \
+         --name "configname" \ # name of the configuration being added
+             --url "https://iehub.eu1-int.edge.siemens.cloud/" \ # URL of IEHUB on which you want perform operations. Provide URL without organization name, e.g.: https://iehub.eu1.edge.siemens.cloud
+         --user "email_address" \ # email address used for IEHUB login   
+             --password "password"  \ # password of the IEM user
