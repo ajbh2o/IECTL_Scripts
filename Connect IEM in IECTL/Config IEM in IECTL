@@ -1,0 +1,66 @@
+
+## Add IEM config to IECTL.
+$ iectl config add iem  \
+         --name "iemdev" \ # unique name for the confguration
+         --url "https://portaldev7.siemenspx.us" \ # your IEM url 
+         --user email@siemens.com \ # email address registered on IEM
+         --password "password"  \ # password of the IEM user
+## Add App Publisher to IECTL
+$ iectl config add publisher  \
+         --workspace "/home/WS" \ # path to for the workspace, used to store app related metadata 
+         --dockerurl "http://127.0.0.1:2375" \ # your docker engine url, used for saving the image refrenced in the docker compose yaml
+         --name "publisherdev"  \ #  unique name for the confguration
+## help with app publisher.
+iectl config add publisher --help
+
+## Environment Variables for IECTL
+$ export IE_SKIP_CERTIFICATE="Set to true to skip certificate check"
+
+$ export IE_DOCKER_URL="Docker engine url eg : <protocol>://<ip>:<port>"
+
+$ export IE_DOCKER_CAFILE="Path of the ca file to connect to a Docker engine (If applicable)"
+
+$ export IE_DOCKER_CERTFILE="Path of the certfile file to connect to a Docker engine (If applicable)"
+
+$ export IE_DOCKER_KEYFILE="Path of the keyfile file to connect to a Docker engine (If applicable)"
+
+$ export IE_WORKSPACE="Path of the workspace for CLI"
+
+$ export IE_URL="IEM URL <protocol>://<ip/domain>:<port[optional]>"
+
+$ export IE_USER="IEM user email address"
+
+$ export IE_PASSWORD="IEM user password"
+
+$ export IE_CONFIG_PATH="path of config file, if you want to load environment vaiables from a file[default path is "./.env"]"
+
+$ export IEHUB_URL="localhost,127.0.0.0"
+
+$ export IEHUB_USER="localhost,127.0.0.0"
+
+$ export IEHUB_PASSWORD="localhost,127.0.0.0"
+
+$ export IEHUB_LOGIN_URL="localhost,127.0.0.0"
+
+$ export IEHUB_AUDIENCE="localhost,127.0.0.0"
+
+$ export IEHUB_CLIENTID="localhost,127.0.0.0"
+
+$ export HTTP_PROXY / http_proxy="protocol://user:password@proxy-server:port"
+
+$ export HTTPS_PROXY / https_proxy="protocol://user:password@proxy-server:port"
+
+$ export NO_PROXY / no_proxy="localhost,127.0.0.0"
+
+
+$ iectl config add iem  \
+         --name "faiem" \ # unique name for the confguration
+         --url "https://iehub.eu1.edge.siemens.cloud" \ # https://192.168.0.10 
+         --user adam.broadwater@siemens.com \ # email address registered on IEM
+         --password "S1emens!"  \ # password of the IEM user
+
+$ iectl config add iem  \
+         --name "IEMajbh2oV2dev" \ # unique name for the confguration
+         --url "https://iehub.eu1.edge.siemens.cloud" \ # https://192.168.0.157 
+         --user siemens@siemens.com \ # email address registered on IEM
+         --password "Siemens!2345"  \ # password of the IEM user
